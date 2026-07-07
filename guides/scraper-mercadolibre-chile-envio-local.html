@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scraper de MercadoLibre Chile con filtro Envio local</title>
+    <meta name="description" content="Como usar Apify para extraer resultados de MercadoLibre Chile con filtro Envio local, precios CLP, senales local/importado y URLs canonicas.">
+    <link rel="canonical" href="https://jchame.github.io/mercadolibre-chile-scrapers/guides/scraper-mercadolibre-chile-envio-local.html">
+  </head>
+  <body>
+    <main>
+      <p><a href="../index.html">MercadoLibre Chile scrapers</a></p>
+      <h1>Scraper de MercadoLibre Chile con filtro Envio local</h1>
+      <p>
+        Estos actores de Apify estan especializados en `mercadolibre.cl`. Sirven para extraer
+        evidencia publica de productos vendidos en Chile: precio en CLP, posicion, rating, texto
+        de vendidos cuando aparece, URL canonica y senales de envio local o importado.
+      </p>
+
+      <h2>Actor recomendado</h2>
+      <p>
+        Para trabajos de produccion usa <a href="https://apify.com/jchame/atomic-actor-1">Atomic Actor 1</a>.
+        Para pruebas simples o diagnostico usa <a href="https://apify.com/jchame/mercadolibre-chile-scraper">Actor 1</a>.
+      </p>
+
+      <h2>Entrada para solo productos locales</h2>
+      <pre><code>{
+  "searchQueries": ["cama perro"],
+  "searchFilterMode": "envio_local",
+  "maxItems": 60,
+  "maxItemsPerQuery": 60,
+  "maxPagesPerQuery": 1,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "apifyProxyGroups": ["RESIDENTIAL"],
+    "apifyProxyCountry": "CL"
+  }
+}</code></pre>
+
+      <h2>Como interpretar los datos</h2>
+      <ul>
+        <li>`local_stock_status = local`: hay evidencia visible de stock local o pagina filtrada por Envio local.</li>
+        <li>`local_stock_status = import_only`: hay evidencia visible de internacional, China, USA u otro origen externo.</li>
+        <li>`local_stock_status = unknown`: no hay suficiente evidencia visible.</li>
+      </ul>
+
+      <p>
+        Regla clave: lo importado no cuenta como competencia local en Chile. Lo desconocido tampoco
+        debe convertirse automaticamente en oportunidad limpia.
+      </p>
+
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://apify.com/jchame/atomic-actor-1">Atomic Actor 1 en Apify</a></li>
+        <li><a href="https://apify.com/jchame/mercadolibre-chile-scraper">Actor 1 en Apify</a></li>
+        <li><a href="../llms.txt">Guia rapida para agentes IA</a></li>
+      </ul>
+    </main>
+  </body>
+</html>
+

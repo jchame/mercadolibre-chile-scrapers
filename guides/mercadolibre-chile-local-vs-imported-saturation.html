@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Measure MercadoLibre Chile saturation: local vs imported listings</title>
+    <meta name="description" content="Measure MercadoLibre Chile product saturation by separating local stock from international/imported listings using Atomic Actor 1 and Envio local evidence.">
+    <link rel="canonical" href="https://jchame.github.io/mercadolibre-chile-scrapers/guides/mercadolibre-chile-local-vs-imported-saturation.html">
+  </head>
+  <body>
+    <main>
+      <p><a href="../index.html">MercadoLibre Chile scrapers</a></p>
+      <h1>Measure MercadoLibre Chile saturation: local vs imported listings</h1>
+      <p>
+        A normal MercadoLibre Chile search page can mix local sellers with cross-border listings.
+        For product validation, only local Chile stock should count as local competition.
+      </p>
+
+      <h2>Recommended actor</h2>
+      <p>
+        Use <a href="https://apify.com/jchame/atomic-actor-1">Atomic Actor 1</a> for saturation:
+        it coordinates child workers, avoids duplicate mission work, and reports cost/block telemetry.
+      </p>
+
+      <h2>Input</h2>
+      <pre><code>{
+  "atomicMode": "orchestrator",
+  "searchQueries": ["monitor de bebe", "propane gauge"],
+  "searchFilterMode": "envio_local",
+  "maxItems": 120,
+  "maxItemsPerQuery": 60,
+  "maxPagesPerQuery": 1,
+  "useMissionQueue": true,
+  "missionDedupeMode": "mission",
+  "resumeMission": true,
+  "maxConcurrentChildRuns": 4,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "apifyProxyGroups": ["RESIDENTIAL"],
+    "apifyProxyCountry": "CL"
+  }
+}</code></pre>
+
+      <h2>What to measure</h2>
+      <ul>
+        <li>Number of rows with `local_stock_status` local.</li>
+        <li>Number of rows with `local_stock_status` import_only.</li>
+        <li>Number of rows with unknown evidence.</li>
+        <li>`search_total_results` and `search_local_filter_total_results` when exposed by MercadoLibre.</li>
+        <li>Price distribution among local rows only.</li>
+      </ul>
+
+      <h2>Failure rule</h2>
+      <p>
+        If scraping is blocked or visibility is unknown, preserve unknown competition. Do not turn
+        missing data into a no-competition signal.
+      </p>
+
+      <p>
+        See <a href="../examples/sample-atomic-output.json">sample Atomic output</a> and
+        <a href="../demos/atomic-local-stock-demo.md">the Atomic demo walkthrough</a>.
+      </p>
+    </main>
+  </body>
+</html>
+

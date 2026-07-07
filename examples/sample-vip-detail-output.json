@@ -1,0 +1,31 @@
+[
+  {
+    "schema_version": "2.0-detail",
+    "site_id": "MLC",
+    "source": "item_detail",
+    "input_url": "https://articulo.mercadolibre.cl/MLC-1486061369-_JM",
+    "final_url": "https://www.mercadolibre.cl/camara-monitor-bebes-con-microfono-vision-nocturna/p/MLC26776676",
+    "item_id": "MLC1486061369",
+    "fetched_item_ids": ["MLC1486061369"],
+    "catalog_product_id": "MLC26776676",
+    "title": "Camara Monitor Bebes Con Microfono Vision Nocturna",
+    "sold_text_visible": "Nuevo | +1000 vendidos",
+    "sold_quantity": 1000,
+    "available_quantity_text_visible": "+50 disponibles",
+    "available_quantity": 50,
+    "shipping_block_text_visible": "Llega gratis hoy por ser tu primera compra | Retira gratis a partir de manana en servicios de encomiendas y otros puntos",
+    "detail_page_loaded": true,
+    "item_detail_fetch_status": "success",
+    "raw_evidence_snapshot": {
+      "evidence_source": "item_detail",
+      "parsed_selectors": [
+        "structured:item_ids",
+        "structured:catalog_product_id",
+        "structured:sold_quantity",
+        "structured:available_quantity",
+        "dom:shipping_block"
+      ]
+    }
+  }
+]
+

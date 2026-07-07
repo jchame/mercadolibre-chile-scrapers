@@ -1,0 +1,27 @@
+[
+  {
+    "schema_version": "1.1",
+    "site_id": "MLC",
+    "input_query": "cama perro",
+    "position": 1,
+    "search_filter_mode": "envio_local",
+    "search_filter_applied": true,
+    "item_id": "MLC3508521936",
+    "title": "Cama Antiestres Para Perros Gatos Colchon Ortopedico",
+    "permalink_original": "https://click1.mercadolibre.cl/mclics/clicks/external/MLC/count?wid=MLC3508521936",
+    "permalink_canonical": "https://articulo.mercadolibre.cl/MLC-3508521936-_JM",
+    "price_clp": 18420,
+    "currency_id": "CLP",
+    "review_rating_average": 4.8,
+    "local_stock_status": "local_stock",
+    "local_stock_reason": "search_card_fast_delivery_text",
+    "local_stock_evidence_text": "Llega gratis hoy",
+    "delivery_text_visible": "Llega gratis hoy",
+    "is_sponsored": true,
+    "ad_type": "pad",
+    "search_total_results": 9999,
+    "local_filter_results": 3754,
+    "marketplace_locality_interpretation": "At most about 37.5% of matching MercadoLibre results are in the Envio local filter."
+  }
+]
+

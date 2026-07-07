@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MercadoLibre Chile local stock scraper for Apify</title>
+    <meta name="description" content="Use Apify actors for MercadoLibre Chile local-stock scraping: Envio local filtering, CLP prices, ratings, sold text, canonical URLs, and local/import evidence.">
+    <link rel="canonical" href="https://jchame.github.io/mercadolibre-chile-scrapers/guides/mercadolibre-chile-local-stock-scraper.html">
+  </head>
+  <body>
+    <main>
+      <p><a href="../index.html">MercadoLibre Chile scrapers</a></p>
+      <h1>MercadoLibre Chile local stock scraper for Apify</h1>
+      <p>
+        The `jchame` MercadoLibre Chile actor family is built for `mercadolibre.cl` evidence:
+        CLP prices, item IDs, canonical URLs, ratings, visible sold text, local/import signals,
+        and MercadoLibre's own `Envio local` filtered search pages.
+      </p>
+
+      <h2>Which actor to use</h2>
+      <ul>
+        <li><a href="https://apify.com/jchame/atomic-actor-1">Atomic Actor 1</a>: production default for many queries, missions, retries, and local-only saturation.</li>
+        <li><a href="https://apify.com/jchame/mercadolibre-chile-scraper">Actor 1</a>: simple checks, diagnostics, and small VIP detail batches.</li>
+      </ul>
+
+      <h2>Local-only input</h2>
+      <pre><code>{
+  "searchQueries": ["cama perro"],
+  "searchFilterMode": "envio_local",
+  "maxItems": 60,
+  "maxItemsPerQuery": 60,
+  "maxPagesPerQuery": 1,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "apifyProxyGroups": ["RESIDENTIAL"],
+    "apifyProxyCountry": "CL"
+  }
+}</code></pre>
+
+      <h2>Fields to read</h2>
+      <ul>
+        <li>`local_stock_status`: local, import_only, or unknown.</li>
+        <li>`local_stock_evidence_text`: visible phrase such as `Llega gratis hoy`, `Internacional`, or `Envio desde China`.</li>
+        <li>`search_filter_mode` and `search_filter_applied`: confirm local filter mode was used.</li>
+        <li>`price_clp`, `review_rating_average`, `sold_quantity_text`, `permalink_canonical`.</li>
+      </ul>
+
+      <h2>Important competition rule</h2>
+      <p>
+        Imported MercadoLibre listings should not count as Chile local-stock competition. Failed or
+        unknown visibility should stay unknown, not be treated as no competition.
+      </p>
+
+      <p>
+        Next: <a href="./mercadolibre-chile-local-vs-imported-saturation.html">measure local vs imported saturation</a>
+        or <a href="./mercadolibre-chile-vip-detail-evidence.html">extract VIP item-detail evidence</a>.
+      </p>
+    </main>
+  </body>
+</html>
+

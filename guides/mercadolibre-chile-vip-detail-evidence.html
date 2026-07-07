@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Extract MercadoLibre Chile shipping, sold, and quantity evidence</title>
+    <meta name="description" content="Use MercadoLibre Chile VIP item-detail mode to capture shipping block text, sold text, available quantity signals, catalog product IDs, and fetched item IDs.">
+    <link rel="canonical" href="https://jchame.github.io/mercadolibre-chile-scrapers/guides/mercadolibre-chile-vip-detail-evidence.html">
+  </head>
+  <body>
+    <main>
+      <p><a href="../index.html">MercadoLibre Chile scrapers</a></p>
+      <h1>Extract MercadoLibre Chile shipping, sold, and quantity evidence</h1>
+      <p>
+        VIP detail mode is for known MercadoLibre Chile item or catalog URLs. It is not broad discovery.
+        Use it when a pipeline already knows which listings need detail-page evidence.
+      </p>
+
+      <h2>Actor choice</h2>
+      <ul>
+        <li>Use <a href="https://apify.com/jchame/atomic-actor-1">Atomic</a> for larger detail batches and retry isolation.</li>
+        <li>Use <a href="https://apify.com/jchame/mercadolibre-chile-scraper">Actor 1</a> for small capped detail checks.</li>
+      </ul>
+
+      <h2>Input</h2>
+      <pre><code>{
+  "runMode": "item_detail",
+  "itemDetailUrls": [
+    "https://articulo.mercadolibre.cl/MLC-1486061369-_JM"
+  ],
+  "maxDetailPages": 1,
+  "detailBrowserFirst": true,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "apifyProxyGroups": ["RESIDENTIAL"],
+    "apifyProxyCountry": "CL"
+  }
+}</code></pre>
+
+      <h2>Fields to read</h2>
+      <ul>
+        <li>`shipping_block_text_visible`: visible delivery promise and shipping options.</li>
+        <li>`sold_text_visible` and `sold_quantity`: rough demand evidence when visible.</li>
+        <li>`available_quantity_text_visible` and `available_quantity`: availability signal when visible.</li>
+        <li>`catalog_product_id` and `seller_offer_count`: catalog overstatement correction when exposed.</li>
+        <li>`fetched_item_ids`: item IDs fetched so callers can record self-traffic events.</li>
+      </ul>
+
+      <h2>Anti-block posture</h2>
+      <p>
+        Detail pages are harder than search pages. Keep batches capped, use residential Chile proxy,
+        and treat failed detail visibility as failed evidence rather than clean local opportunity.
+      </p>
+
+      <p>
+        See <a href="../examples/sample-vip-detail-output.json">sample VIP detail output</a> and
+        <a href="../demos/actor1-vip-detail-demo.md">the VIP detail demo walkthrough</a>.
+      </p>
+    </main>
+  </body>
+</html>
+

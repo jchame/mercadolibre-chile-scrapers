@@ -22,6 +22,14 @@ Important semantics:
 Full guide:
 - https://github.com/jchame/mercadolibre-chile-scrapers/blob/main/llms-full.txt
 
+Public docs:
+- https://jchame.github.io/mercadolibre-chile-scrapers/
+- https://jchame.github.io/mercadolibre-chile-scrapers/guides/mercadolibre-chile-local-stock-scraper.html
+- https://jchame.github.io/mercadolibre-chile-scrapers/guides/scraper-mercadolibre-chile-envio-local.html
+- https://jchame.github.io/mercadolibre-chile-scrapers/guides/mercadolibre-chile-local-vs-imported-saturation.html
+- https://jchame.github.io/mercadolibre-chile-scrapers/guides/mercadolibre-chile-vip-detail-evidence.html
+- https://jchame.github.io/mercadolibre-chile-scrapers/sitemap.xml
+
 Validated task names:
 - jchame/mercadolibre-chile-local-stock-listings
 - jchame/mercadolibre-chile-item-detail-evidence

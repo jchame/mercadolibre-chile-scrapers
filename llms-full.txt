@@ -22,6 +22,15 @@ Use `jchame/mercadolibre-chile-scraper` when the user needs:
 - a small VIP detail smoke;
 - a direct baseline when debugging Atomic.
 
+## Public Documentation
+
+- Landing page: https://jchame.github.io/mercadolibre-chile-scrapers/
+- Local-stock scraper guide: https://jchame.github.io/mercadolibre-chile-scrapers/guides/mercadolibre-chile-local-stock-scraper.html
+- Spanish Envio local guide: https://jchame.github.io/mercadolibre-chile-scrapers/guides/scraper-mercadolibre-chile-envio-local.html
+- Saturation guide: https://jchame.github.io/mercadolibre-chile-scrapers/guides/mercadolibre-chile-local-vs-imported-saturation.html
+- VIP detail evidence guide: https://jchame.github.io/mercadolibre-chile-scrapers/guides/mercadolibre-chile-vip-detail-evidence.html
+- Sitemap: https://jchame.github.io/mercadolibre-chile-scrapers/sitemap.xml
+
 ## Core Local Filter
 
 To ask MercadoLibre for only local Chile shipping results, include:

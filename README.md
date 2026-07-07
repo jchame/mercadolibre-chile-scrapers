@@ -47,9 +47,28 @@ For VIP detail evidence on known item/catalog URLs:
 
 - Atomic flagship actor: <https://apify.com/jchame/atomic-actor-1>
 - Core/simple actor: <https://apify.com/jchame/mercadolibre-chile-scraper>
+- Public docs hub: <https://jchame.github.io/mercadolibre-chile-scrapers/>
 - Machine-readable short guide: [`llms.txt`](./llms.txt)
 - Machine-readable full guide: [`llms-full.txt`](./llms-full.txt)
 - Markdown landing page: [`index.md`](./index.md)
+
+## Guides
+
+- [MercadoLibre Chile local stock scraper for Apify](./guides/mercadolibre-chile-local-stock-scraper.html)
+- [Scraper de MercadoLibre Chile con filtro Envio local](./guides/scraper-mercadolibre-chile-envio-local.html)
+- [Measure MercadoLibre Chile saturation: local vs imported listings](./guides/mercadolibre-chile-local-vs-imported-saturation.html)
+- [Extract MercadoLibre Chile shipping, sold, and quantity evidence](./guides/mercadolibre-chile-vip-detail-evidence.html)
+
+## Demos And Promotion Kit
+
+- [Atomic local-stock demo](./demos/atomic-local-stock-demo.md)
+- [Actor 1 VIP detail demo](./demos/actor1-vip-detail-demo.md)
+- [Demo video scripts](./demos/demo-scripts.md)
+- [Sample Atomic output](./examples/sample-atomic-output.json)
+- [Sample VIP detail output](./examples/sample-vip-detail-output.json)
+- [Social posts](./promotion/social-posts.md)
+- [Outreach templates](./promotion/outreach-templates.md)
+- [Apify Console checklist](./promotion/apify-console-checklist.md)
 
 ## Validated Example Tasks
 
