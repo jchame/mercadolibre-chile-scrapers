@@ -89,9 +89,9 @@ Atomic production mission:
 
 Created and smoke-tested task names:
 
-- `jchame/mercadolibre-chile-local-stock-listings`
-- `jchame/mercadolibre-chile-item-detail-evidence`
-- `jchame/mercadolibre-chile-parser-diagnostic`
+- [Scrape MercadoLibre Chile local stock listings](https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-local-stock-listings)
+- [Get MercadoLibre Chile item detail evidence](https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-item-detail-evidence)
+- [Debug MercadoLibre Chile search extraction](https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-parser-diagnostic)
 - `jchame/mercadolibre-chile-market-saturation`
 - `jchame/mercadolibre-chile-local-stock-at-scale`
 - `jchame/mercadolibre-chile-vip-detail-batch`

@@ -233,9 +233,9 @@ Atomic is public, but paid traffic should stay gated until non-owner billing pro
 ## Validated Example Tasks
 
 Actor 1 tasks:
-- `jchame/mercadolibre-chile-local-stock-listings`
-- `jchame/mercadolibre-chile-item-detail-evidence`
-- `jchame/mercadolibre-chile-parser-diagnostic`
+- `jchame/mercadolibre-chile-local-stock-listings`: https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-local-stock-listings
+- `jchame/mercadolibre-chile-item-detail-evidence`: https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-item-detail-evidence
+- `jchame/mercadolibre-chile-parser-diagnostic`: https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-parser-diagnostic
 
 Atomic tasks:
 - `jchame/mercadolibre-chile-market-saturation`
