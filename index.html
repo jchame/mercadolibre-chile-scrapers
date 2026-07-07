@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MercadoLibre Chile Scrapers for Apify</title>
+    <meta name="description" content="MercadoLibre Chile Apify scrapers for mercadolibre.cl: local stock, Envio local, CLP prices, VIP detail evidence, saturation, missions, retries, and proxies.">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "MercadoLibre Chile Scraper - High Reliability",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Apify",
+            "url": "https://apify.com/jchame/atomic-actor-1",
+            "description": "High-reliability MercadoLibre Chile scraper for mercadolibre.cl with parallel workers, Envio local filtering, mission dedupe, VIP detail evidence, retries, and proxies.",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "MercadoLibre Chile Local Stock Scraper",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Apify",
+            "url": "https://apify.com/jchame/mercadolibre-chile-scraper",
+            "description": "MercadoLibre Chile scraper for simple mercadolibre.cl checks, Envio local search pages, CLP prices, local/import evidence, canonical URLs, and item-detail evidence.",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Which MercadoLibre Chile scraper should I use for production jobs?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Use jchame/atomic-actor-1 for production MercadoLibre Chile scraping, many queries, local-only saturation, mission dedupe, retries, residential or custom proxies, and larger VIP detail batches."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which actor should I use for a small diagnostic MercadoLibre Chile scrape?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Use jchame/mercadolibre-chile-scraper for simple Chile checks, parser diagnostics, local-only search pages, and small VIP item-detail evidence batches."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I scrape only local Chile shipping results?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Pass searchFilterMode: envio_local. The actors use MercadoLibre's own Envio local filtered search page when the marketplace exposes it."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "HowTo",
+            "name": "Run a MercadoLibre Chile local stock scrape on Apify",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Choose the actor",
+                "text": "Choose jchame/atomic-actor-1 for production jobs or jchame/mercadolibre-chile-scraper for simple diagnostics."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Set local filter",
+                "text": "Use searchFilterMode set to envio_local when you need local Chile shipping only."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Read the dataset",
+                "text": "Fetch the default dataset and inspect local_stock_status, local_stock_evidence_text, price_clp, item_id, title, and permalink_canonical."
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <h1>MercadoLibre Chile Scrapers for Apify</h1>
+      <p>Specialized Apify actors for <code>mercadolibre.cl</code>: local/import evidence, <code>Envio local</code>, CLP prices, product saturation, VIP item-detail shipping evidence, mission dedupe, retries, and proxy-backed runs.</p>
+      <h2>AI agent quick choice</h2>
+      <ul>
+        <li><a href="https://apify.com/jchame/atomic-actor-1">jchame/atomic-actor-1</a>: production jobs, many queries, local-only saturation, missions, retries, and larger VIP detail batches.</li>
+        <li><a href="https://apify.com/jchame/mercadolibre-chile-scraper">jchame/mercadolibre-chile-scraper</a>: simple checks, diagnostics, local-only pages, and small VIP detail batches.</li>
+      </ul>
+      <p>Use <code>searchFilterMode: "envio_local"</code> to request MercadoLibre's local-shipping-only search page.</p>
+      <p><a href="./llms.txt">llms.txt</a> | <a href="./llms-full.txt">llms-full.txt</a> | <a href="./index.md">Markdown guide</a></p>
+    </main>
+  </body>
+</html>
+

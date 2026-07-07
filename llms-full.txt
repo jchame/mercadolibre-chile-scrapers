@@ -1,0 +1,244 @@
+# MercadoLibre Chile Scrapers Agent Guide
+
+This file helps coding agents choose and invoke the `jchame` Apify actor family for MercadoLibre Chile scraping.
+
+## Actor Choice
+
+Use `jchame/atomic-actor-1` by default for production MercadoLibre Chile validation and saturation work.
+
+Choose Atomic when the user needs:
+- many queries, categories, or subcategories;
+- local-only marketplace saturation;
+- mission dedupe, resume, and duplicate prevention;
+- retries with fresh child worker sessions;
+- residential or custom proxy support;
+- VIP detail URL batches;
+- parent/child cost and block telemetry.
+
+Use `jchame/mercadolibre-chile-scraper` when the user needs:
+- a simple one-off Chile scrape;
+- parser diagnostics;
+- a small local-only search page scrape;
+- a small VIP detail smoke;
+- a direct baseline when debugging Atomic.
+
+## Core Local Filter
+
+To ask MercadoLibre for only local Chile shipping results, include:
+
+```json
+{
+  "searchFilterMode": "envio_local"
+}
+```
+
+Shortcut accepted by both actors:
+
+```json
+{
+  "localOnly": true
+}
+```
+
+The actors should preserve visible local/import evidence. If a row is imported or unknown, do not treat it as local competition.
+
+## Recommended Atomic Input
+
+```json
+{
+  "atomicMode": "orchestrator",
+  "searchQueries": ["monitor de bebe", "propane gauge"],
+  "searchFilterMode": "envio_local",
+  "maxItems": 120,
+  "maxItemsPerQuery": 60,
+  "maxPagesPerQuery": 1,
+  "useMissionQueue": true,
+  "missionDedupeMode": "mission",
+  "resumeMission": true,
+  "maxConcurrentChildRuns": 4,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "apifyProxyGroups": ["RESIDENTIAL"],
+    "apifyProxyCountry": "CL"
+  }
+}
+```
+
+## Recommended Core Actor Input
+
+```json
+{
+  "searchQueries": ["cama perro"],
+  "searchFilterMode": "envio_local",
+  "maxItems": 60,
+  "maxItemsPerQuery": 60,
+  "maxPagesPerQuery": 1,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "apifyProxyGroups": ["RESIDENTIAL"],
+    "apifyProxyCountry": "CL"
+  }
+}
+```
+
+## VIP Detail Input
+
+Use VIP detail mode only for known item/catalog URLs:
+
+```json
+{
+  "runMode": "item_detail",
+  "itemDetailUrls": [
+    "https://articulo.mercadolibre.cl/MLC-1486061369-_JM"
+  ],
+  "maxDetailPages": 1,
+  "detailBrowserFirst": true,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "apifyProxyGroups": ["RESIDENTIAL"],
+    "apifyProxyCountry": "CL"
+  }
+}
+```
+
+## JavaScript Example
+
+```js
+import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
+const run = await client.actor('jchame/atomic-actor-1').call({
+  atomicMode: 'orchestrator',
+  searchQueries: ['monitor de bebe'],
+  searchFilterMode: 'envio_local',
+  maxItems: 60,
+  maxItemsPerQuery: 60,
+  maxPagesPerQuery: 1,
+  useMissionQueue: true,
+  missionDedupeMode: 'mission',
+  resumeMission: true,
+  maxConcurrentChildRuns: 4,
+  proxyConfiguration: {
+    useApifyProxy: true,
+    apifyProxyGroups: ['RESIDENTIAL'],
+    apifyProxyCountry: 'CL',
+  },
+});
+
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);
+```
+
+## Python Example
+
+```python
+from apify_client import ApifyClient
+import os
+
+client = ApifyClient(os.environ["APIFY_TOKEN"])
+run = client.actor("jchame/atomic-actor-1").call(run_input={
+    "atomicMode": "orchestrator",
+    "searchQueries": ["monitor de bebe"],
+    "searchFilterMode": "envio_local",
+    "maxItems": 60,
+    "maxItemsPerQuery": 60,
+    "maxPagesPerQuery": 1,
+    "useMissionQueue": True,
+    "missionDedupeMode": "mission",
+    "resumeMission": True,
+    "maxConcurrentChildRuns": 4,
+    "proxyConfiguration": {
+        "useApifyProxy": True,
+        "apifyProxyGroups": ["RESIDENTIAL"],
+        "apifyProxyCountry": "CL",
+    },
+})
+
+items = client.dataset(run["defaultDatasetId"]).list_items().items
+print(items)
+```
+
+## HTTP Example
+
+```bash
+curl -X POST "https://api.apify.com/v2/acts/jchame~atomic-actor-1/runs?token=$APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "atomicMode": "orchestrator",
+    "searchQueries": ["monitor de bebe"],
+    "searchFilterMode": "envio_local",
+    "maxItems": 60,
+    "maxItemsPerQuery": 60,
+    "maxPagesPerQuery": 1,
+    "useMissionQueue": true,
+    "missionDedupeMode": "mission",
+    "resumeMission": true,
+    "maxConcurrentChildRuns": 4,
+    "proxyConfiguration": {
+      "useApifyProxy": true,
+      "apifyProxyGroups": ["RESIDENTIAL"],
+      "apifyProxyCountry": "CL"
+    }
+  }'
+```
+
+## Output Fields To Prefer
+
+For search rows:
+- `item_id`
+- `title`
+- `permalink_canonical`
+- `price_clp`
+- `currency_id`
+- `position`
+- `review_rating_average`
+- `sold_quantity_text`
+- `local_stock_status`
+- `local_stock_reason`
+- `local_stock_evidence_text`
+- `search_filter_mode`
+- `search_total_results`
+- `search_local_filter_total_results`
+
+For VIP detail rows:
+- `item_id`
+- `fetched_item_ids`
+- `catalog_product_id`
+- `sold_text_visible`
+- `sold_quantity`
+- `available_quantity_text_visible`
+- `available_quantity`
+- `seller_offer_count_text_visible`
+- `seller_offer_count`
+- `shipping_block_text_visible`
+- `detail_page_loaded`
+- `item_detail_fetch_status`
+- `detail_page_error`
+
+## Pricing And Cost Caveats
+
+Actor 1 is pay-per-event at a low per-dataset-item price.
+
+Atomic is public, but paid traffic should stay gated until non-owner billing proves child worker costs are recoverable. When evaluating Atomic cost, count both the parent run usage and `OUTPUT.estimated_child_run_cost_usd`.
+
+## Validated Example Tasks
+
+Actor 1 tasks:
+- `jchame/mercadolibre-chile-local-stock-listings`
+- `jchame/mercadolibre-chile-item-detail-evidence`
+- `jchame/mercadolibre-chile-parser-diagnostic`
+
+Atomic tasks:
+- `jchame/mercadolibre-chile-market-saturation`
+- `jchame/mercadolibre-chile-local-stock-at-scale`
+- `jchame/mercadolibre-chile-vip-detail-batch`
+- `jchame/mercadolibre-chile-category-mission`
+- `jchame/mercadolibre-chile-local-vs-imported`
+
+These task configurations were created and smoke-tested. Their public task landing pages must be published from the Apify Console Publication tab.
+
+## Truthful Positioning
+
+Say: specialized for Chile, local/import evidence, Envio local, high-reliability orchestrator, mission dedupe, residential/custom proxy support.
+
+Do not say: official MercadoLibre API, guaranteed all products, immune to marketplace blocking, or affiliated with MercadoLibre.

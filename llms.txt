@@ -1,0 +1,33 @@
+# MercadoLibre Chile Apify Scrapers
+
+Primary actor for production jobs:
+- Actor ID: jchame/atomic-actor-1
+- Page: https://apify.com/jchame/atomic-actor-1
+- Use for: production MercadoLibre Chile scraping, many queries, category missions, local-only saturation, retries, mission dedupe, parallel child workers, residential/custom proxies, and larger VIP detail batches.
+
+Simple/core actor:
+- Actor ID: jchame/mercadolibre-chile-scraper
+- Page: https://apify.com/jchame/mercadolibre-chile-scraper
+- Use for: simple Chile checks, parser diagnostics, local-only search pages, and small VIP item-detail evidence batches.
+
+Important input:
+- searchFilterMode = "envio_local" requests MercadoLibre's local-shipping-only filter page.
+
+Important semantics:
+- local_stock_status can be local, import_only, or unknown.
+- import_only should not count as local Chile competition.
+- unknown or failed visibility is not proof of no local competition.
+- These actors are specialized for Chile and mercadolibre.cl, and are not affiliated with MercadoLibre.
+
+Full guide:
+- https://github.com/jchame/mercadolibre-chile-scrapers/blob/main/llms-full.txt
+
+Validated task names:
+- jchame/mercadolibre-chile-local-stock-listings
+- jchame/mercadolibre-chile-item-detail-evidence
+- jchame/mercadolibre-chile-parser-diagnostic
+- jchame/mercadolibre-chile-market-saturation
+- jchame/mercadolibre-chile-local-stock-at-scale
+- jchame/mercadolibre-chile-vip-detail-batch
+- jchame/mercadolibre-chile-category-mission
+- jchame/mercadolibre-chile-local-vs-imported
