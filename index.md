@@ -87,15 +87,13 @@ Atomic production mission:
 
 ## Validated Example Tasks
 
-Created and smoke-tested task names:
+Created, smoke-tested, and published task landing pages:
 
 - [Scrape MercadoLibre Chile local stock listings](https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-local-stock-listings)
 - [Get MercadoLibre Chile item detail evidence](https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-item-detail-evidence)
 - [Debug MercadoLibre Chile search extraction](https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-parser-diagnostic)
-- `jchame/mercadolibre-chile-market-saturation`
-- `jchame/mercadolibre-chile-local-stock-at-scale`
-- `jchame/mercadolibre-chile-vip-detail-batch`
-- `jchame/mercadolibre-chile-category-mission`
-- `jchame/mercadolibre-chile-local-vs-imported`
-
-Apify task landing pages are published from each task's Console Publication tab after a successful smoke run.
+- [Check MercadoLibre Chile market saturation](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-market-saturation)
+- [Scrape MercadoLibre Chile local stock at scale](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-local-stock-at-scale)
+- [Extract MercadoLibre Chile VIP detail evidence](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-vip-detail-batch)
+- [Run a deduped MercadoLibre Chile category mission](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-category-mission)
+- [Compare local vs imported MercadoLibre Chile listings](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-local-vs-imported)

@@ -72,7 +72,7 @@ For VIP detail evidence on known item/catalog URLs:
 
 ## Validated Example Tasks
 
-These Apify task configurations have been created and smoke-tested. Publish their public task landing pages from each task's Console Publication tab.
+These Apify task configurations have been created, smoke-tested, and published as public task landing pages.
 
 Actor 1 tasks:
 
@@ -82,11 +82,11 @@ Actor 1 tasks:
 
 Atomic tasks:
 
-- `jchame/mercadolibre-chile-market-saturation`
-- `jchame/mercadolibre-chile-local-stock-at-scale`
-- `jchame/mercadolibre-chile-vip-detail-batch`
-- `jchame/mercadolibre-chile-category-mission`
-- `jchame/mercadolibre-chile-local-vs-imported`
+- [Check MercadoLibre Chile market saturation](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-market-saturation)
+- [Scrape MercadoLibre Chile local stock at scale](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-local-stock-at-scale)
+- [Extract MercadoLibre Chile VIP detail evidence](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-vip-detail-batch)
+- [Run a deduped MercadoLibre Chile category mission](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-category-mission)
+- [Compare local vs imported MercadoLibre Chile listings](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-local-vs-imported)
 
 ## Failure Semantics
 

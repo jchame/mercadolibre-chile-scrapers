@@ -238,13 +238,13 @@ Actor 1 tasks:
 - `jchame/mercadolibre-chile-parser-diagnostic`: https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-parser-diagnostic
 
 Atomic tasks:
-- `jchame/mercadolibre-chile-market-saturation`
-- `jchame/mercadolibre-chile-local-stock-at-scale`
-- `jchame/mercadolibre-chile-vip-detail-batch`
-- `jchame/mercadolibre-chile-category-mission`
-- `jchame/mercadolibre-chile-local-vs-imported`
+- `jchame/mercadolibre-chile-market-saturation`: https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-market-saturation
+- `jchame/mercadolibre-chile-local-stock-at-scale`: https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-local-stock-at-scale
+- `jchame/mercadolibre-chile-vip-detail-batch`: https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-vip-detail-batch
+- `jchame/mercadolibre-chile-category-mission`: https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-category-mission
+- `jchame/mercadolibre-chile-local-vs-imported`: https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-local-vs-imported
 
-These task configurations were created and smoke-tested. Their public task landing pages must be published from the Apify Console Publication tab.
+These task configurations were created, smoke-tested, and published as public task landing pages.
 
 ## Truthful Positioning
 

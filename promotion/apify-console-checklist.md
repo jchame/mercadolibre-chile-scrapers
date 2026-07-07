@@ -12,33 +12,30 @@ These steps require Apify Console access and should not be automated blindly.
   - Atomic: `assets/store-icon-atomic.svg` from the Atomic repo.
 - Confirm categories: `ECOMMERCE`, `DEVELOPER_TOOLS`.
 
-## Publish Task Landing Pages
+## Published Task Landing Pages
 
-Publish these tasks only after confirming the latest run has useful output:
+These task pages have been published after successful smoke runs:
 
 Actor 1:
 
-- `mercadolibre-chile-local-stock-listings`
-- `mercadolibre-chile-item-detail-evidence`
-- `mercadolibre-chile-parser-diagnostic`
+- [mercadolibre-chile-local-stock-listings](https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-local-stock-listings)
+- [mercadolibre-chile-item-detail-evidence](https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-item-detail-evidence)
+- [mercadolibre-chile-parser-diagnostic](https://apify.com/jchame/mercadolibre-chile-scraper/examples/mercadolibre-chile-parser-diagnostic)
 
 Atomic:
 
-- `mercadolibre-chile-market-saturation`
-- `mercadolibre-chile-local-stock-at-scale`
-- `mercadolibre-chile-vip-detail-batch`
-- `mercadolibre-chile-category-mission`
-- `mercadolibre-chile-local-vs-imported`
+- [mercadolibre-chile-market-saturation](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-market-saturation)
+- [mercadolibre-chile-local-stock-at-scale](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-local-stock-at-scale)
+- [mercadolibre-chile-vip-detail-batch](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-vip-detail-batch)
+- [mercadolibre-chile-category-mission](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-category-mission)
+- [mercadolibre-chile-local-vs-imported](https://apify.com/jchame/atomic-actor-1/examples/mercadolibre-chile-local-vs-imported)
 
-For each task:
+Periodic QA:
 
-1. Open the task in Apify Console.
-2. Check the latest run succeeded.
-3. Check the dataset has useful rows.
-4. Open the Publication tab.
-5. Publish the task page.
-6. Hide confusing advanced inputs from the public preview when Console allows it.
-7. Confirm the public task URL loads logged out.
+1. Confirm each public task URL loads logged out.
+2. Confirm each task still points to a useful latest run/output preview.
+3. Review public input fields after major actor schema changes.
+4. Refresh SEO title/description if Apify Store positioning changes.
 
 ## Atomic Monetization Gate
 
@@ -54,4 +51,3 @@ Do not enable Atomic paid traffic until this is verified from a non-owner Apify 
    - platform usage cost pass-through enabled
    - minimum max-cost setting: `$0.25`
 5. If child costs bill the owner unrecoverably, keep Atomic public but not monetized until custom cost-recovery events are implemented.
-
